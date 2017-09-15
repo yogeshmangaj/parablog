@@ -1,0 +1,3 @@
+[run]
+source = parablog
+omit = parablog/test*
