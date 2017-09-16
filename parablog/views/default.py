@@ -1,6 +1,7 @@
 from pyramid.view import view_config, view_defaults
 
-from parablog.const import METHODS
+from sqlalchemy import func
+from parablog.const import METHODS, POST_PREVIEW_CHAR_LENGTH, MAX_PAGING_LIMIT, PAGING_LIMITS
 from parablog.models import BlogPost
 from parablog.routes import ROUTES
 from parablog.services.blogpost import BlogPostService
@@ -33,11 +34,25 @@ class BlogPostsViews(ViewsMixin):
     @view_config(request_method=METHODS.GET)
     def list_posts(self):
         posts_list = []
+        offset = int(self.request.GET.get("offset", 0))
+        limit = int(self.request.GET.get("limit", PAGING_LIMITS.POST_LIST))
+        offset = max(offset, 0)
+        limit = min(limit, MAX_PAGING_LIMIT)
         for post in self.posts_service.list(columns=[
-            BlogPost.title, BlogPost.created_at, BlogPost.updated_at, BlogPost.uri, BlogPost.id
-        ]):
+            BlogPost.title, BlogPost.created_at, BlogPost.updated_at, BlogPost.uri, BlogPost.id,
+            func.substr(func.array_to_string(BlogPost.content, "\n\n"), 0 , POST_PREVIEW_CHAR_LENGTH).label("content_preview")
+        ], offset=offset, limit=limit):
             posts_list.append(alchemy_result_to_dict(post))
-        return posts_list
+
+        count = len(posts_list)
+        total = self.posts_service.count()
+        paging_details = {
+            "offset": offset,
+            "limit": limit,
+            "count": count,
+            "total": total
+        }
+        return {"posts": posts_list, "paging": paging_details}
 
     @view_config(request_method=METHODS.POST)
     def add_post(self):

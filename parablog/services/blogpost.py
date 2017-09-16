@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import logging
 import re
 
+from parablog.const import PAGING_LIMITS, MAX_PAGING_LIMIT
 from parablog.models import BlogPost
 from parablog.utils import SessionMixin
 
@@ -32,8 +33,13 @@ class BlogPostService(SessionMixin):
         """
         return self.session.query(BlogPost).filter(BlogPost.uri == uri).first()
 
-    def list(self, columns=None):
+    def list(self, columns=None, offset=0, limit=PAGING_LIMITS.POST_LIST):
         query = self.session.query(BlogPost)
         if columns is not None:
             query = self.session.query(*columns)
-        return query
+        offset = max(offset, 0)
+        limit = min(limit, MAX_PAGING_LIMIT)
+        return query.limit(limit).offset(offset)
+
+    def count(self):
+        return self.session.query(BlogPost).count()
