@@ -74,6 +74,7 @@ class BlogPostDetailsViews(ViewsMixin):
         uri = self.request.matchdict['uri']
         post = self.posts_service.get_by_uri(uri)
         resp = post.as_dict()
+        resp["content_plain_text"] = "\n\n".join(resp["content"])
         comments = {}
         for comment in self.comments_service.get_by_blogpost_id(post.id):
             para_id = comment.paragraph_id

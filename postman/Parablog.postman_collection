@@ -1,0 +1,186 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Parablog",
+		"_postman_id": "850e858a-384b-278d-def3-367c322b4d7b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BlogPosts",
+			"description": "",
+			"item": [
+				{
+					"name": "Full Post",
+					"description": "",
+					"item": [
+						{
+							"name": "Get full post",
+							"request": {
+								"url": "{{host}}/posts/{{uri}}",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Add comment",
+							"request": {
+								"url": "{{host}}/posts/{{uri}}/comments",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"paragraph_id\": 0,\n\t\"content\": \"Expire and refresh the attributes on the given instance.\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Add Post",
+					"request": {
+						"url": "{{host}}/posts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"Scientists use light to purge defects\",\n\t\"content\": \"All it takes is a humid day.\\n\\nThe last decade has seen a radical drop in the price of solar panels\\n\\nPerovskites are thought to be the next big thing in solar.\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "List Posts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.posts.length) {",
+									"    postman.setEnvironmentVariable(\"uri\", jsonData.posts[0].uri);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{host}}/posts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "List Posts (with paging query)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.posts.length) {",
+									"    postman.setEnvironmentVariable(\"uri\", jsonData.posts[0].uri);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{host}}/posts?offset=2&limit=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "2",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"request": {
+				"url": "{{host}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
