@@ -70,22 +70,22 @@ class TestBlogpostCommentService(BaseTest):
         self.comment_service.add(post.id, 0, comment_content)
         transaction.commit()
         # fetch comments
-        comments = self.comment_service.get_by_blogpost_id(post.id)
+        comments = list(self.comment_service.get_by_blogpost_id(post.id))
         assert len(comments) == 1
         assert comments[0].content == comment_content
 
     def test_list_blogposts(self):
         # List should be empty
-        post_list = self.bp_service.list()
+        post_list = list(self.bp_service.list())
         assert len(post_list) == 0
         # add one post
         self.bp_service.create("Hello", "World")
         transaction.commit()
-        post_list = self.bp_service.list()
+        post_list = list(self.bp_service.list())
         assert len(post_list) == 1
         # add another post
         self.bp_service.create("Hello2", "World2")
         transaction.commit()
-        post_list = self.bp_service.list()
+        post_list = list(self.bp_service.list())
         assert len(post_list) == 2
 

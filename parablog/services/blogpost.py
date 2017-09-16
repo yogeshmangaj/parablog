@@ -3,15 +3,15 @@ from __future__ import unicode_literals
 import logging
 import re
 
-import transaction
-
 from parablog.models import BlogPost
+from parablog.utils import SessionMixin
 
 log = logging.getLogger(__name__)
 
 
-class BlogPostService(object):
+class BlogPostService(SessionMixin):
     def __init__(self, session):
+        super(BlogPostService, self).__init__(session)
         self.session = session
 
     def create(self, title, content):
@@ -24,10 +24,7 @@ class BlogPostService(object):
         :rtype: BlogPost
         """
         split_content = re.split("(?<=[^\n])\n\n", content)
-        blog_post = BlogPost(title, content=split_content)
-        self.session.add(blog_post)
-        transaction.commit()
-        return blog_post
+        return self.save(BlogPost(title, content=split_content))
 
     def get_by_uri(self, uri):
         """
@@ -35,5 +32,8 @@ class BlogPostService(object):
         """
         return self.session.query(BlogPost).filter(BlogPost.uri == uri).first()
 
-    def list(self):
-        return self.session.query(BlogPost).all()
+    def list(self, columns=None):
+        query = self.session.query(BlogPost)
+        if columns is not None:
+            query = self.session.query(*columns)
+        return query
