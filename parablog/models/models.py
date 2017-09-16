@@ -40,7 +40,7 @@ class Comment(Base, BaseMixin):
     __tablename__ = 'comment'
     id = Column(Integer, primary_key=True)
     blogpost_id = Column(Integer, ForeignKey(BlogPost.id, onupdate='CASCADE', ondelete='CASCADE'))
-    paragraph_id = Column(Integer, nullable=False)  # indicates the index number of paragraph
+    paragraph_id = Column(Integer, nullable=False)  # indicates the index number (starting at zero) of paragraph
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.datetime.utcnow)
     content = Column(Text)

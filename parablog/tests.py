@@ -4,6 +4,7 @@ import transaction
 from pyramid import testing
 
 from parablog.services.blogpost import BlogPostService
+from parablog.services.comment import CommentService
 
 
 def dummy_request(dbsession):
@@ -43,22 +44,48 @@ class BaseTest(unittest.TestCase):
         Base.metadata.drop_all(self.engine)
 
 
-class TestBlogpostService(BaseTest):
+class TestBlogpostCommentService(BaseTest):
     def setUp(self):
-        super(TestBlogpostService, self).setUp()
+        super(TestBlogpostCommentService, self).setUp()
         self.init_database()
+        self.bp_service = BlogPostService(self.session)
+        self.comment_service = CommentService(self.session)
 
-    def test_create_blogpost(self):
-        service = BlogPostService(self.session)
+    def test_create_blogpost_add_comments(self):
+
         name = "The Zen of Python"
         content = """Beautiful is better than ugly.\n\n
         Explicit is better than implicit.\n\n
         Simple is better than complex.\n\n
         Complex is better than complicated.
         """
-        post = service.create(name, content)
+        post = self.bp_service.create(name, content)
         transaction.commit()
-        post = service.get_by_uri(post.uri)
-        transaction.commit()
+        post = self.bp_service.get_by_uri(post.uri)
         assert post.title == name
         assert len(post.content) == 4
+
+        # add comments
+        comment_content = "Readability counts"
+        self.comment_service.add(post.id, 0, comment_content)
+        transaction.commit()
+        # fetch comments
+        comments = self.comment_service.get_by_blogpost_id(post.id)
+        assert len(comments) == 1
+        assert comments[0].content == comment_content
+
+    def test_list_blogposts(self):
+        # List should be empty
+        post_list = self.bp_service.list()
+        assert len(post_list) == 0
+        # add one post
+        self.bp_service.create("Hello", "World")
+        transaction.commit()
+        post_list = self.bp_service.list()
+        assert len(post_list) == 1
+        # add another post
+        self.bp_service.create("Hello2", "World2")
+        transaction.commit()
+        post_list = self.bp_service.list()
+        assert len(post_list) == 2
+
