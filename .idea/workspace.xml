@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd7a5a18-d64b-497a-b3fe-2b00b58be661" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/parablog/const.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/parablog/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/development.ini" afterPath="$PROJECT_DIR$/development.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/__init__.py" afterPath="$PROJECT_DIR$/parablog/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/models/models.py" afterPath="$PROJECT_DIR$/parablog/models/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/routes.py" afterPath="$PROJECT_DIR$/parablog/routes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/services/blogpost.py" afterPath="$PROJECT_DIR$/parablog/services/blogpost.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/services/comment.py" afterPath="$PROJECT_DIR$/parablog/services/comment.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/tests.py" afterPath="$PROJECT_DIR$/parablog/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parablog/views/default.py" afterPath="$PROJECT_DIR$/parablog/views/default.py" />
     </list>
@@ -27,7 +18,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/parablog$Parablog.coverage" NAME="Parablog Coverage Results" MODIFIED="1505550534808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/parablog$Parablog.coverage" NAME="Parablog Coverage Results" MODIFIED="1505552156341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/parablog$Unittest_TestBlogpostService_test_create_blogpost.coverage" NAME="Unittests in parablog Coverage Results" MODIFIED="1505502221266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parablog" />
     <SUITE FILE_PATH="coverage/parablog$py_test.coverage" NAME="py.test Coverage Results" MODIFIED="1505535016492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parablog" />
   </component>
@@ -96,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/parablog/services/blogpost.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+              <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -104,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="comment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parablog/services/comment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="462">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -126,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="default.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parablog/views/default.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+            <state relative-caret-position="178">
+              <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -195,8 +186,8 @@
       <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parablog/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+            <state relative-caret-position="105">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -315,13 +306,13 @@
         <option value="$PROJECT_DIR$/parablog/models/__init__.py" />
         <option value="$PROJECT_DIR$/parablog/const.py" />
         <option value="$PROJECT_DIR$/parablog/models/models.py" />
-        <option value="$PROJECT_DIR$/parablog/tests.py" />
-        <option value="$PROJECT_DIR$/parablog/views/default.py" />
         <option value="$PROJECT_DIR$/parablog/routes.py" />
         <option value="$PROJECT_DIR$/development.ini" />
         <option value="$PROJECT_DIR$/parablog/utils.py" />
         <option value="$PROJECT_DIR$/parablog/services/blogpost.py" />
+        <option value="$PROJECT_DIR$/parablog/tests.py" />
         <option value="$PROJECT_DIR$/parablog/services/comment.py" />
+        <option value="$PROJECT_DIR$/parablog/views/default.py" />
       </list>
     </option>
   </component>
@@ -1127,7 +1118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505540336509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed: session/transaction issues when saving a new object&#10;Added: Blogpost &amp; comment views&#10;&#10;">
+      <created>1505550817071</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1505550817071</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1221,7 +1219,8 @@
     <MESSAGE value="Changed: setup and initialization specifics&#10;Added: BlogPost and Comment model" />
     <MESSAGE value="Added services layer, and partial tests&#10;Fixed dbsession/transaction issues" />
     <MESSAGE value="Updated comment service&#10;Added test for comments&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated comment service&#10;Added test for comments&#10;" />
+    <MESSAGE value="Fixed: session/transaction issues when saving a new object&#10;Added: Blogpost &amp; comment views&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed: session/transaction issues when saving a new object&#10;Added: Blogpost &amp; comment views&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1508,16 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parablog/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parablog/routes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1532,16 +1521,6 @@
           <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parablog/views/default.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1603,7 +1582,7 @@
     <entry file="file://$PROJECT_DIR$/parablog/services/blogpost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1612,10 +1591,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parablog/services/comment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="462">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parablog/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parablog/views/default.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="63" column="22" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>

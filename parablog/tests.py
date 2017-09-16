@@ -52,7 +52,6 @@ class TestBlogpostCommentService(BaseTest):
         self.comment_service = CommentService(self.session)
 
     def test_create_blogpost_add_comments(self):
-
         name = "The Zen of Python"
         content = """Beautiful is better than ugly.\n\n
         Explicit is better than implicit.\n\n

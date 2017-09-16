@@ -59,9 +59,12 @@ class BlogPostDetailsViews(ViewsMixin):
         uri = self.request.matchdict['uri']
         post = self.posts_service.get_by_uri(uri)
         resp = post.as_dict()
-        comments = []
+        comments = {}
         for comment in self.comments_service.get_by_blogpost_id(post.id):
-            comments.append(comment.as_dict())
+            para_id = comment.paragraph_id
+            if para_id not in comments:
+                comments[para_id] = []
+            comments[para_id].append(comment.as_dict())
         resp['comments'] = comments
         return self.success(resp)
 
